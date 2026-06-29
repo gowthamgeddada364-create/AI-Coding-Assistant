@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="chat-container">
+
+   <div class="chat-header">
+
+    <div>
+
+        <h2>🤖 AI Coding Assistant</h2>
+
+        <small>
+            Hello, {{ username }} 👋
+        </small>
+
+    </div>
+
+    <div class="header-buttons">
+
+        <button id="new-chat-btn">🆕</button>
+        <button id="clear-history-btn">🗑️</button>
+        <button id="export-btn">📥</button>
+        <button id="logout-btn">🚪</button>
+        <button id="theme-btn">🌙</button>
+
+    </div>
+
+</div>
+
+    <div class="chat-box" id="chat-box">
+
+        <div class="bot-message">
+            Hello 👋 Welcome to AI Chatbot.
+        </div>
+
+    </div>
+
+    <div class="typing" id="typing">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+    <div class="input-area">
+
+        <button id="voice-btn">
+            🎤
+        </button>
+
+        <input
+            type="text"
+            id="user-input"
+            placeholder="Type your message..."
+        >
+
+        <button id="send-btn">
+            ➤
+        </button>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

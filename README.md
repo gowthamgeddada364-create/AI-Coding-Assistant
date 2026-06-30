@@ -96,7 +96,33 @@ http://127.0.0.1:5000
 
 ## 📸 Screenshots
 
-Screenshots will be added soon.
+### 🔐 Login Page
+
+![Login](screenshots/login.png)
+
+---
+
+### 📝 Signup Page
+
+![Signup](screenshots/signup.png)
+
+---
+
+### 🏠 Home Page
+
+![Home](screenshots/home.png)
+
+---
+
+### 🤖 AI Response
+
+![AI Response](screenshots/ai-response.png)
+
+---
+
+### 🌙 Dark Mode
+
+![Dark Mode](screenshots/darkmode.png)
 
 ---
 

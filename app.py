@@ -4,8 +4,11 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
+import database
 
 app = Flask(__name__)
+
+database.init_db()
 
 app.secret_key = "gowtham_secret_key"
 

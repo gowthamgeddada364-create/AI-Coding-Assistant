@@ -3,82 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chatbot</title>
-
+    <title>AI Coding Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
 <body>
 
-<div class="chat-container">
-
-   <div class="chat-header">
-
-    <div>
-
-        <h2>🤖 AI Coding Assistant</h2>
-
-        <small>
-            Hello, {{ username }} 👋
-        </small>
-
-    </div>
-
-    <div class="header-buttons">
-
-        <button id="new-chat-btn">🆕</button>
-        <button id="clear-history-btn">🗑️</button>
-        <button id="export-btn">📥</button>
-        <button id="logout-btn">🚪</button>
-        <button id="theme-btn">🌙</button>
-
-    </div>
-
-</div>
-
-    <div class="chat-box" id="chat-box">
-
-        <div class="bot-message">
-            Hello 👋 Welcome to AI Chatbot.
+<div class="app-container">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">🤖</div>
+            <span class="sidebar-title">AI Chatbot</span>
         </div>
 
-    </div>
+        <div class="sidebar-actions">
+            <button id="new-chat-btn" class="sidebar-btn new-chat">
+                <span>+</span> New Chat
+            </button>
+        </div>
 
-    <div class="typing" id="typing">
-    <span></span>
-    <span></span>
-    <span></span>
+        <div class="sidebar-user">
+            <div class="user-avatar">{{ username[0] | upper }}</div>
+            <div class="user-info">
+                <span class="user-name">{{ username }}</span>
+                <span class="user-status">Online</span>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="chat-header">
+            <button id="menu-toggle" class="menu-btn">☰</button>
+            <div class="header-info">
+                <h2>AI Coding Assistant</h2>
+                <span class="header-subtitle">Gemini 2.5 Flash</span>
+            </div>
+            <div class="header-actions">
+                <button id="export-btn" class="icon-btn" title="Export chat">📥</button>
+                <button id="theme-btn" class="icon-btn" title="Toggle theme">🌙</button>
+                <button id="clear-history-btn" class="icon-btn" title="Clear history">🗑️</button>
+                <button id="logout-btn" class="icon-btn logout" title="Logout">🚪</button>
+            </div>
+        </header>
+
+        <div class="chat-box" id="chat-box">
+            <div class="welcome-message">
+                <div class="welcome-icon">🤖</div>
+                <h3>Hello, {{ username }}! 👋</h3>
+                <p>I'm your AI coding assistant. Ask me anything about code, debugging, or software development.</p>
+                <div class="suggestion-chips">
+                    <div class="chip" data-prompt="Write a Python function to sort a list">Write a Python function to sort a list</div>
+                    <div class="chip" data-prompt="Explain how REST APIs work">Explain how REST APIs work</div>
+                    <div class="chip" data-prompt="Debug this: IndexError">Debug this: IndexError</div>
+                    <div class="chip" data-prompt="Write a SQL query to join two tables">Write a SQL query to join two tables</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="typing" id="typing">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="typing-text">AI is thinking...</span>
+        </div>
+
+        <div class="input-area">
+            <button id="voice-btn" class="input-icon-btn" title="Voice input">🎤</button>
+            <input
+                type="text"
+                id="user-input"
+                placeholder="Ask me anything about coding..."
+                autofocus
+            >
+            <button id="send-btn" class="send-btn" title="Send message">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </main>
 </div>
-
-    <div class="input-area">
-
-        <button id="voice-btn">
-            🎤
-        </button>
-
-        <input
-            type="text"
-            id="user-input"
-            placeholder="Type your message..."
-        >
-
-        <button id="send-btn">
-            ➤
-        </button>
-
-    </div>
-
-</div>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
-
 </html>
